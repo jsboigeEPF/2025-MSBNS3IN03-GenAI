@@ -1253,10 +1253,10 @@ Le projet est evalue selon un systeme d'**evaluation collegiale** combinant :
 
 | Critere | Poids | Description |
 |---------|-------|-------------|
-| **Fonctionnalite** | 40% | Le projet fonctionne-t-il comme decrit ? Est-il demonstrable ? |
-| **Qualite Technique** | 25% | Code propre, bien structure, documente, bonnes pratiques |
-| **Innovation/Creativite** | 15% | Originalite de l'approche ou des fonctionnalites |
-| **Presentation** | 20% | Clarte de la demonstration, du README et des slides |
+| **Presentation** | 25% | Clarte de l'expose, qualite des slides, demonstration fluide, capacite a repondre aux questions |
+| **Technique** | 25% | Code fonctionnel, architecture propre, bonnes pratiques, utilisation appropriee des outils et APIs |
+| **Theorique** | 25% | Comprehension des concepts IA sous-jacents, justification des choix algorithmiques, maitrise du sujet |
+| **Organisation/Gestion de projet** | 25% | Repartition du travail, respect des delais, documentation, commits reguliers, collaboration effective |
 
 ### Algorithme de Notation (GradeBookApp)
 
@@ -1264,7 +1264,7 @@ Le systeme utilise un algorithme de notation en **5 etapes** :
 
 #### 1. Collecte des Evaluations
 - Formulaire Google Forms pour soumettre les notes et commentaires
-- Chaque evaluateur note : Fonctionnalite, Qualite, Innovation, Presentation
+- Chaque evaluateur note : Presentation, Technique, Theorique, Organisation
 
 #### 2. Filtrage et Validation
 5 regles de filtrage sont appliquees :
