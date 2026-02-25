@@ -55,15 +55,12 @@ def review_code(diff_text, level="senior"):
     """
 
     try:
-        # CHANGEMENT : On met à jour le print
         print(f"📡 Appel à l'API via OpenRouter avec le modèle anthropic/claude-3.5-sonnet...")
         print(f"📊 Taille du prompt: {len(prompt)} caractères")
 
         response = client.chat.completions.create(
-            # CHANGEMENT : Le modèle plus performant
             model="anthropic/claude-3.5-sonnet",
             messages=[
-                # CHANGEMENT : Instruction stricte pour le formatage
                 {
                     "role": "system", 
                     "content": "Tu es un expert en revue de code. Tu dois IMPÉRATIVEMENT structurer toute ta réponse avec du Markdown valide (utilise des ### pour chaque catégorie de tes suggestions)."
@@ -78,3 +75,22 @@ def review_code(diff_text, level="senior"):
         error_msg = str(e)
         print(f"❌ Erreur API: {error_msg}")
         raise Exception(f"❌ Erreur lors de la communication avec l'IA : {error_msg}")
+
+def chat_with_ia(messages_history):
+    """
+    Continue la conversation en envoyant tout l'historique du chat à l'IA.
+    """
+    print(f"💬 Relance de l'IA pour le chat (Historique: {len(messages_history)} messages)")
+    
+    try:
+        response = client.chat.completions.create(
+            model="anthropic/claude-3.5-sonnet",
+            messages=messages_history,
+            temperature=0.7,
+            max_tokens=2048
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        error_msg = str(e)
+        print(f"❌ Erreur API Chat: {error_msg}")
+        raise Exception(f"Erreur lors du chat avec l'IA : {error_msg}")

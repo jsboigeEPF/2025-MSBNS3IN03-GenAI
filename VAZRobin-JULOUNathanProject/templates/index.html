@@ -7,8 +7,6 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     
     <style>
-        /* --- NOTRE CSS CLASSIQUE ET MODERNE --- */
-        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
@@ -23,7 +21,6 @@
             margin: 0 auto;
         }
 
-        /* --- NOUVEAU: Style de la barre de navigation --- */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -86,7 +83,6 @@
             margin-bottom: 25px;
         }
 
-        /* Style spécifique pour la ligne du sélecteur de niveau */
         .level-selector {
             margin-bottom: 25px;
             background-color: #f8fafc;
@@ -278,57 +274,24 @@
                     </label>
                 </div>
                 <style>
-                .radio-card {
-                    position: relative;
-                }
-                .radio-card input[type="radio"]:checked + .custom-radio {
-                    border: 2px solid #228B22;
-                    background: #fff;
-                }
-                .senior-card input[type="radio"]:checked + .custom-radio {
-                    border: 2px solid #1e90ff;
-                    background: #fff;
-                }
+                .radio-card { position: relative; }
+                .radio-card input[type="radio"]:checked + .custom-radio { border: 2px solid #228B22; background: #fff; }
+                .senior-card input[type="radio"]:checked + .custom-radio { border: 2px solid #1e90ff; background: #fff; }
                 .custom-radio {
-                    width: 24px;
-                    height: 24px;
-                    border-radius: 50%;
-                    border: 2px solid #bbb;
-                    background: #f5f5f5;
-                    display: inline-block;
-                    position: relative;
+                    width: 24px; height: 24px; border-radius: 50%; border: 2px solid #bbb;
+                    background: #f5f5f5; display: inline-block; position: relative;
                     transition: border 0.2s, background 0.2s;
                 }
                 .radio-card input[type="radio"]:checked + .custom-radio::after {
-                    content: "";
-                    display: block;
-                    width: 12px;
-                    height: 12px;
-                    border-radius: 50%;
-                    background: #228B22;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    transition: background 0.2s;
+                    content: ""; display: block; width: 12px; height: 12px; border-radius: 50%;
+                    background: #228B22; position: absolute; top: 50%; left: 50%;
+                    transform: translate(-50%, -50%); transition: background 0.2s;
                 }
-                .senior-card input[type="radio"]:checked + .custom-radio::after {
-                    background: #1e90ff;
-                }
-                .radio-card:hover .custom-radio {
-                    border-color: #228B22;
-                }
-                .senior-card:hover .custom-radio {
-                    border-color: #1e90ff;
-                }
-
-                /* Espace entre le bloc "Comment ça marche" et le bouton "Lancer l'analyse IA" */
-                .how-it-works-block {
-                    margin-bottom: 40px !important;
-                }
-                .launch-ia-btn {
-                    margin-top: 24px !important;
-                }
+                .senior-card input[type="radio"]:checked + .custom-radio::after { background: #1e90ff; }
+                .radio-card:hover .custom-radio { border-color: #228B22; }
+                .senior-card:hover .custom-radio { border-color: #1e90ff; }
+                .how-it-works-block { margin-bottom: 40px !important; }
+                .launch-ia-btn { margin-top: 24px !important; }
                 </style>
                 <script>
                 document.querySelectorAll('.radio-card').forEach(function(card) {
@@ -340,7 +303,6 @@
                     });
                 });
                 </script>
-                </div>
             </div>
 
             <button id="analyzeBtn" onclick="startAnalysis()">✨ Lancer l'analyse IA</button>
@@ -359,7 +321,7 @@
                 <div class="step">
                     <div class="step-icon">🧠</div>
                     <h3>2. Analyse IA</h3>
-                    <p>Le modèle Google Gemini inspecte les failles, les bugs et les conventions.</p>
+                    <p>Le modèle inspecte les failles, les bugs et les conventions.</p>
                 </div>
                 <div class="step">
                     <div class="step-icon">📝</div>
@@ -378,18 +340,29 @@
         <div id="resultContainer" class="card result-card hidden">
             <h2 style="color: #10b981; margin-top: 0;">✅ Rapport d'analyse terminé</h2>
             <div id="aiResponse"></div> 
+
+            <div id="chatContainer" class="hidden" style="margin-top: 40px; border-top: 2px solid #e2e8f0; padding-top: 20px;">
+                <h3 style="color: #1e3a8a;">💬 Discutez avec l'IA de ce code</h3>
+                
+                <div id="chatMessages" style="height: 300px; overflow-y: auto; background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; gap: 15px;">
+                    </div>
+                
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="chatInput" placeholder="Demandez d'expliquer une fonction, de réécrire un bloc..." style="flex: 1; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1;" onkeypress="if(event.key === 'Enter') sendChatMessage()">
+                    <button onclick="sendChatMessage()" style="width: auto; padding: 12px 25px; background: #10b981; margin: 0;">Envoyer</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
+        // Mémoire du navigateur pour le chat
+        let currentChatHistory = [];
         
         async function startAnalysis() {
-            // 1. Récupération des valeurs
             const owner = document.getElementById('owner').value.trim();
             const repo = document.getElementById('repo').value.trim();
             const pr = document.getElementById('pr').value.trim();
-            
-            // NOUVEAU : Récupération du niveau choisi (Junior ou Senior)
             const selectedLevel = document.querySelector('input[name="level"]:checked').value;
             
             const btn = document.getElementById('analyzeBtn');
@@ -403,19 +376,17 @@
                 return;
             }
 
-            // 2. Préparation de l'interface
             infoZone.classList.add('hidden');
             loadingZone.classList.remove('hidden');
             resultZone.classList.add('hidden');
+            document.getElementById('chatContainer').classList.add('hidden'); 
             btn.disabled = true;
             btn.innerText = "⏳ Analyse en cours...";
 
             try {
-                // 3. Appel à l'API Flask
                 const response = await fetch('/api/analyze', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    // On envoie maintenant l'objet 'level' au serveur
                     body: JSON.stringify({ 
                         owner: owner, 
                         repo: repo, 
@@ -430,6 +401,16 @@
                 if (data.status === 'success') {
                     responseDiv.innerHTML = marked.parse(data.result);
                     resultZone.classList.remove('hidden');
+
+                    currentChatHistory = [
+                        { role: "system", content: "Tu es un expert en revue de code. Utilise le Markdown pour répondre." },
+                        { role: "user", content: "Voici le code à analyser :\n```diff\n" + data.diff + "\n```" },
+                        { role: "assistant", content: data.result }
+                    ];
+                    
+                    document.getElementById('chatContainer').classList.remove('hidden');
+                    document.getElementById('chatMessages').innerHTML = '<div style="text-align: center; color: #64748b; font-size: 0.9em;">Début de la conversation</div>';
+
                 } else {
                     alert("Erreur: " + data.message);
                     infoZone.classList.remove('hidden');
@@ -442,6 +423,55 @@
                 btn.disabled = false;
                 btn.innerText = "✨ Lancer l'analyse IA";
             }
+        }
+
+        async function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (!message) return;
+
+            const chatMessagesDiv = document.getElementById('chatMessages');
+            
+            chatMessagesDiv.innerHTML += `
+                <div style="align-self: flex-end; background: #2563eb; color: white; padding: 10px 15px; border-radius: 15px 15px 0 15px; max-width: 80%;">
+                    ${message}
+                </div>`;
+            input.value = '';
+
+            currentChatHistory.push({ role: "user", content: message });
+
+            const loadingId = "loading-" + Date.now();
+            chatMessagesDiv.innerHTML += `
+                <div id="${loadingId}" style="align-self: flex-start; background: #e2e8f0; color: #1e293b; padding: 10px 15px; border-radius: 15px 15px 15px 0;">
+                    <em>L'IA réfléchit...</em>
+                </div>`;
+            chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ messages: currentChatHistory })
+                });
+                
+                const data = await response.json();
+                document.getElementById(loadingId).remove();
+
+                if (data.status === 'success') {
+                    currentChatHistory.push({ role: "assistant", content: data.reply });
+                    
+                    chatMessagesDiv.innerHTML += `
+                        <div style="align-self: flex-start; background: white; border: 1px solid #e2e8f0; color: #1e293b; padding: 15px; border-radius: 15px 15px 15px 0; max-width: 85%; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                            ${marked.parse(data.reply)}
+                        </div>`;
+                } else {
+                    alert("Erreur: " + data.message);
+                }
+            } catch (e) {
+                document.getElementById(loadingId).remove();
+                alert("Erreur lors de l'envoi du message.");
+            }
+            chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
         }
     </script>
 </body>
