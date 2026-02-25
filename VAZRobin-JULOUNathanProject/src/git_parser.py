@@ -19,16 +19,3 @@ def get_pr_diff(repo_owner, repo_name, pr_number):
         return response.text
     else:
         raise Exception(f"Impossible de récupérer la PR. Code d'erreur : {response.status_code}\nDétails : {response.text}")
-
-# --- Zone de Test ---
-if __name__ == "__main__":
-    try:
-        # On utilise une vraie PR vérifiée du projet Flask (PR 5000)
-        test_diff = get_pr_diff("pallets", "flask", 5000)
-        
-        print("\n--- Aperçu du Diff ---")
-        print(test_diff[:500]) 
-        print("\n----------------------")
-        
-    except Exception as e:
-        print(e)

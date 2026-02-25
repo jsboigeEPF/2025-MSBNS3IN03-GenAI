@@ -1,7 +1,7 @@
 from openai import OpenAI
 from src.config import API_KEY
 
-# 🛠️ On garde le base_url d'OpenRouter
+# On garde le base_url d'OpenRouter
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
     api_key=API_KEY
@@ -13,7 +13,7 @@ def review_code(diff_text, level="senior"):
     """
     print(f"🧠 Analyse du code en cours (Niveau: {level.upper()})...")
 
-    # 1. On personnalise la consigne selon le niveau choisi par l'utilisateur
+    # On personnalise la consigne selon le niveau choisi par l'utilisateur
     if level == "junior":
         consignes_niveau = """
         Le développeur qui a écrit ce code est un profil Junior / Débutant.
@@ -34,7 +34,7 @@ def review_code(diff_text, level="senior"):
         Va droit au but. Ne fais aucune pédagogie sur les concepts de base. Concentre-toi uniquement sur l'architecture, l'optimisation algorithmique avancée, les failles de sécurité critiques et les subtilités du langage.
         """
 
-    # 2. On intègre ces consignes dans le Prompt principal
+    # On intègre ces consignes dans le Prompt principal
     prompt = f"""
     Tu es un expert en revue de code (Code Review).
     Ton objectif est d'analyser le diff git suivant et de fournir des retours.
