@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Historique - AI Code Reviewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: #1f2937;
+            margin: 0;
+            padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        
+        /* Barre de navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: bold;
+        }
+        .nav-links a.logout { color: #dc2626; } /* Rouge pour déconnexion */
+
+        /* Style des cartes d'historique */
+        .history-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid #2563eb;
+        }
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .history-header h3 { margin: 0; color: #1e3a8a; }
+        .date { color: #6b7280; font-size: 0.9em; }
+        
+        /* Style du Markdown généré */
+        .markdown-content h3 { color: #1f2937; margin-top: 20px; font-size: 1.2em; }
+        .markdown-content pre { background: #1e293b; color: #f8fafc; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        .markdown-content code { font-family: monospace; background: #e2e8f0; color: #b91c1c; padding: 2px 5px; border-radius: 4px; }
+        .markdown-content pre code { background: transparent; color: inherit; padding: 0; }
+        
+        .empty-message { text-align: center; color: #6b7280; font-size: 1.2em; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar">
+            <div><strong>🤖 AI Reviewer</strong> | Bonjour, {{ username }} !</div>
+            <div class="nav-links">
+                <a href="/">Nouvelle Analyse</a>
+                <a href="/historique">Mon Historique</a>
+                <a href="/logout" class="logout">Déconnexion</a>
+            </div>
+        </nav>
+
+        <h1 style="color: #1e3a8a; text-align: center;">📚 Historique de vos revues</h1>
+
+        {% if reviews %}
+            {% for review in reviews %}
+                <div class="history-card">
+                    <div class="history-header">
+                        <h3>📦 Dépôt : {{ review.repo_name }} | PR #{{ review.pr_number }}</h3>
+                        <span class="date">📅 {{ review.date_created.strftime('%d/%m/%Y à %H:%M') }}</span>
+                    </div>
+                    <div class="raw-markdown" style="display: none;">{{ review.ai_result }}</div>
+                    <div class="markdown-content"></div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="empty-message">
+                Vous n'avez pas encore fait d'analyse. <br>
+                <a href="/" style="color: #2563eb; text-decoration: none; font-weight: bold;">Faites votre première revue !</a>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cards = document.querySelectorAll('.history-card');
+            cards.forEach(card => {
+                const rawText = card.querySelector('.raw-markdown').innerText;
+                const displayDiv = card.querySelector('.markdown-content');
+                displayDiv.innerHTML = marked.parse(rawText);
+            });
+        });
+    </script>
+</body>
+</html>
