@@ -1,0 +1,42 @@
+{
+  "source_file": "C:\\Users\\Nacim\\Projet IA Generative\\Projet_AgentMCP_NAF_ISB\\NAF_ISB\\data\\input\\order_11000.pdf",
+  "document_type": "Order",
+  "order_id": "11000",
+  "order_date": "2018-04-06",
+  "shipped_date": "2018-04-14",
+  "customer_id": "RATTC",
+  "customer_name": "Rattlesnake Canyon Grocery",
+  "employee_name": "Andrew Fuller",
+  "shipper_id": "3",
+  "shipper_name": "Federal Shipping",
+  "shipping": {
+    "ship_name": "Rattlesnake Canyon Grocery",
+    "ship_address": "2817 Milton Dr.",
+    "ship_city": "Albuquerque",
+    "ship_region": "North America",
+    "ship_postal_code": "87110",
+    "ship_country": "USA"
+  },
+  "products": [
+    {
+      "description": "Chef Anton's Cajun Seasoning",
+      "quantity": 25.0,
+      "unit_price": 22.0,
+      "line_total": 550.0
+    },
+    {
+      "description": "Guaraná Fantástica",
+      "quantity": 30.0,
+      "unit_price": 4.5,
+      "line_total": 135.0
+    },
+    {
+      "description": "Original Frankfurter grüne Soße",
+      "quantity": 30.0,
+      "unit_price": 13.0,
+      "line_total": 390.0
+    }
+  ],
+  "total_price": 1075.0,
+  "currency": "USD"
+}

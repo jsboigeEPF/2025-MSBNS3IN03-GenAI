@@ -1,0 +1,36 @@
+{
+  "source_file": "C:\\Users\\Nacim\\Projet IA Generative\\Projet_AgentMCP_NAF_ISB\\NAF_ISB\\data\\input\\invoice_11060.pdf",
+  "document_type": "Invoice",
+  "order_id": "11060",
+  "order_date": "2018-04-30",
+  "shipped_date": null,
+  "customer_id": "FRANS",
+  "customer_name": "Paolo Accorti",
+  "employee_name": null,
+  "shipper_id": null,
+  "shipper_name": null,
+  "shipping": {
+    "ship_name": "Paolo Accorti",
+    "ship_address": "Via Monte Bianco 34",
+    "ship_city": "Torino",
+    "ship_region": null,
+    "ship_postal_code": "10100",
+    "ship_country": "Italy"
+  },
+  "products": [
+    {
+      "description": "Camembert Pierrot",
+      "quantity": 4.0,
+      "unit_price": 34.0,
+      "line_total": 136.0
+    },
+    {
+      "description": "Original Frankfurter grüne Soße",
+      "quantity": 10.0,
+      "unit_price": 13.0,
+      "line_total": 130.0
+    }
+  ],
+  "total_price": 266.0,
+  "currency": "EUR"
+}

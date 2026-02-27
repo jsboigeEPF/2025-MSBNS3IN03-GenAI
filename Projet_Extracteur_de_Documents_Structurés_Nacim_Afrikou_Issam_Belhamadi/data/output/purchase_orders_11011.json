@@ -1,0 +1,35 @@
+{
+  "source_file": "C:\\Users\\Nacim\\Projet IA Generative\\Projet_AgentMCP_NAF_ISB\\NAF_ISB\\data\\input\\purchase_orders_11011.pdf",
+  "document_type": "Purchase Order",
+  "order_id": "11011",
+  "order_date": "2018-04-09",
+  "shipped_date": null,
+  "customer_id": null,
+  "customer_name": "Maria Anders",
+  "employee_name": null,
+  "shipper_id": null,
+  "shipper_name": null,
+  "shipping": null,
+  "products": [
+    {
+      "description": "Escargots de Bourgogne",
+      "quantity": 40.0,
+      "unit_price": 13.25,
+      "line_total": 530.0
+    },
+    {
+      "description": "Flotemysost",
+      "quantity": 20.0,
+      "unit_price": 21.5,
+      "line_total": 430.0
+    },
+    {
+      "description": "Total",
+      "quantity": null,
+      "unit_price": null,
+      "line_total": 960.0
+    }
+  ],
+  "total_price": 960.0,
+  "currency": "USD"
+}

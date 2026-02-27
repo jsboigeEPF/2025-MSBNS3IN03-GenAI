@@ -1,0 +1,41 @@
+{
+  "source_file": "C:\\Users\\Nacim\\Projet IA Generative\\Projet_AgentMCP_NAF_ISB\\NAF_ISB\\data\\input\\purchase_orders_11013.pdf",
+  "document_type": "Purchase Order",
+  "order_id": "11013",
+  "order_date": "2018-04-09",
+  "shipped_date": null,
+  "customer_id": null,
+  "customer_name": "Alejandra Camino",
+  "employee_name": null,
+  "shipper_id": null,
+  "shipper_name": null,
+  "shipping": null,
+  "products": [
+    {
+      "description": "Tunnbröd",
+      "quantity": 10.0,
+      "unit_price": 9.0,
+      "line_total": 90.0
+    },
+    {
+      "description": "Singaporean Hokkien Fried Mee",
+      "quantity": 4.0,
+      "unit_price": 14.0,
+      "line_total": 56.0
+    },
+    {
+      "description": "Rogede sild",
+      "quantity": 20.0,
+      "unit_price": 9.5,
+      "line_total": 190.0
+    },
+    {
+      "description": "Scottish Longbreads",
+      "quantity": 2.0,
+      "unit_price": 12.5,
+      "line_total": 25.0
+    }
+  ],
+  "total_price": 361.0,
+  "currency": "USD"
+}
