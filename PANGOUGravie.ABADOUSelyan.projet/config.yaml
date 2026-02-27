@@ -1,0 +1,105 @@
+# Data Analyst Agent - Configuration
+# Version: 1.0.0
+
+# Paramètres globaux
+project:
+  name: "Data Analyst Agent"
+  version: "1.0.0"
+  description: "Agent d'analyse de données automatisé"
+
+# Paramètres de données
+data:
+  # Chemin vers le fichier CSV à analyser
+  input_path: "data/input.csv"
+
+  # Chemin vers le dossier de sortie pour les résultats
+  output_dir: "outputs"
+
+  # Encodage par défaut
+  encoding: "utf-8"
+
+  # Séparateur CSV par défaut
+  separator: ","
+
+  # Lignes à ignorer au chargement
+  skip_rows: 0
+
+# Paramètres de nettoyage
+cleaning:
+  # Gestion des valeurs manquantes
+  handle_missing:
+    strategy: "drop"  # options: drop, fill, ignore
+    fill_value: "unknown"
+
+  # Gestion des outliers
+  handle_outliers:
+    enabled: true
+    method: "iqr"  # options: iqr, zscore
+    threshold: 1.5
+
+  # Normalisation des textes
+  normalize_text: true
+
+# Paramètres d'analyse
+analysis:
+  # Niveau de détail des analyses
+  verbosity: "normal"  # options: minimal, normal, verbose
+
+  # Test statistiques
+  statistical_tests:
+    normality_test: "shapiro"
+    significance_level: 0.05
+
+  # Aggregations par défaut
+  default_aggregations:
+    - "mean"
+    - "median"
+    - "std"
+    - "min"
+    - "max"
+
+# Paramètres de visualisation
+visualization:
+  # Style de visualisation
+  style: "default"  # options: default, dark, publication
+
+  # Dimensions par défaut
+  default_size:
+    width: 10
+    height: 6
+
+  # Format de sortie
+  output_format: "png"  # options: png, pdf, svg
+
+  # Résolution (DPI)
+  dpi: 100
+
+# Paramètres de logging
+logging:
+  level: "INFO"  # options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/analyst.log"
+  max_bytes: 10485760  # 10 MB
+  backup_count: 5
+
+# Paramètres LLM (OpenAI)
+llm:
+  # Activer/désactiver l'LLM (défaut: true)
+  enabled: true
+
+  # Modèle OpenAI à utiliser
+  model: "gpt-4o"
+
+  # Température pour la génération (0 = déterministe, 1 = créatif)
+  temperature: 0.2
+
+  # Limite de sortie (tokens)
+  max_output_tokens: 800
+
+  # Limites de sécurité
+  security:
+    # Ne jamais exécuter du code arbitraire
+    prevent_code_execution: true
+    # Limites sur les requêtes
+    max_query_cost: 0.10  # USD maximum par requête
+    max_queries_per_minute: 10

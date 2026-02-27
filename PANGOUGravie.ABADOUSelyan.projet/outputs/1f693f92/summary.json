@@ -1,0 +1,825 @@
+{
+  "metadata": {
+    "input_file": "uploads\\1f693f92_sales_data.csv",
+    "output_dir": "outputs\\1f693f92",
+    "timestamp": "2026-02-27T14:21:26.158207"
+  },
+  "ingestion_meta": {
+    "filepath": "uploads\\1f693f92_sales_data.csv",
+    "filename": "1f693f92_sales_data.csv",
+    "size_bytes": 2432,
+    "encoding_used": "utf-8",
+    "separator_used": ",",
+    "rows_loaded": 35,
+    "columns_loaded": 10,
+    "warnings": [],
+    "errors": [],
+    "timestamp": "2026-02-27T14:21:22.566651",
+    "columns_original": [
+      "order_id",
+      "date",
+      "customer_id",
+      "region",
+      "product",
+      "category",
+      "price",
+      "quantity",
+      "total_amount",
+      "payment_method"
+    ],
+    "columns_normalized": [
+      "order_id",
+      "date",
+      "customer_id",
+      "region",
+      "product",
+      "category",
+      "price",
+      "quantity",
+      "total_amount",
+      "payment_method"
+    ]
+  },
+  "data_quality_summary": {
+    "before": {
+      "rows": 35,
+      "columns": 10,
+      "memory_bytes": 12940,
+      "na_count": 3,
+      "duplicates": 0
+    },
+    "after": {
+      "rows": 35,
+      "columns": 10,
+      "memory_bytes": 12940,
+      "na_count": 0,
+      "duplicates": 0
+    },
+    "warnings": [
+      "price: 4 outliers (11.4%)",
+      "quantity: 7 outliers (20.0%)",
+      "total_amount: 4 outliers (11.4%)"
+    ],
+    "type_inference": {
+      "order_id": {
+        "type": "numeric",
+        "converted": true,
+        "original_dtype": "int64",
+        "warnings": []
+      },
+      "date": {
+        "type": "datetime",
+        "converted": true,
+        "original_dtype": "str",
+        "warnings": []
+      },
+      "customer_id": {
+        "type": "categorical",
+        "converted": false,
+        "original_dtype": "str",
+        "warnings": []
+      },
+      "region": {
+        "type": "categorical",
+        "converted": false,
+        "original_dtype": "str",
+        "warnings": []
+      },
+      "product": {
+        "type": "categorical",
+        "converted": false,
+        "original_dtype": "str",
+        "warnings": []
+      },
+      "category": {
+        "type": "categorical",
+        "converted": false,
+        "original_dtype": "str",
+        "warnings": []
+      },
+      "price": {
+        "type": "numeric",
+        "converted": true,
+        "original_dtype": "float64",
+        "warnings": []
+      },
+      "quantity": {
+        "type": "numeric",
+        "converted": true,
+        "original_dtype": "float64",
+        "warnings": []
+      },
+      "total_amount": {
+        "type": "numeric",
+        "converted": true,
+        "original_dtype": "float64",
+        "warnings": []
+      },
+      "payment_method": {
+        "type": "categorical",
+        "converted": false,
+        "original_dtype": "str",
+        "warnings": []
+      }
+    },
+    "missing_values": {
+      "before": {
+        "order_id": 0,
+        "date": 0,
+        "customer_id": 0,
+        "region": 0,
+        "product": 0,
+        "category": 0,
+        "price": 1,
+        "quantity": 1,
+        "total_amount": 1,
+        "payment_method": 0
+      },
+      "after": {
+        "order_id": 0,
+        "date": 0,
+        "customer_id": 0,
+        "region": 0,
+        "product": 0,
+        "category": 0,
+        "price": 0,
+        "quantity": 0,
+        "total_amount": 0,
+        "payment_method": 0
+      },
+      "strategy": {
+        "order_id": "median (1018.0)",
+        "date": "NaT (conserv\u00e9)",
+        "customer_id": "mode (C001)",
+        "region": "mode (North)",
+        "product": "mode (Chair)",
+        "category": "mode (Electronics)",
+        "price": "median (120.5)",
+        "quantity": "median (2.0)",
+        "total_amount": "median (179.985)",
+        "payment_method": "mode (Card)"
+      }
+    },
+    "duplicates_removed": 0,
+    "outliers_detected": {
+      "order_id": {
+        "lower_bound": 984.0,
+        "upper_bound": 1052.0,
+        "count": 0,
+        "percentage": 0.0,
+        "iqr": 17.0
+      },
+      "price": {
+        "lower_bound": -235.01,
+        "upper_bound": 460.99,
+        "count": 4,
+        "percentage": 11.428571428571429,
+        "iqr": 174.0
+      },
+      "quantity": {
+        "lower_bound": -2.75,
+        "upper_bound": 7.25,
+        "count": 7,
+        "percentage": 20.0,
+        "iqr": 2.5
+      },
+      "total_amount": {
+        "lower_bound": -162.5125,
+        "upper_bound": 537.5074999999999,
+        "count": 4,
+        "percentage": 11.428571428571429,
+        "iqr": 175.005
+      }
+    }
+  },
+  "analysis_summary": {
+    "shape": {
+      "rows": 35,
+      "columns": 10
+    },
+    "memory_bytes": 12940,
+    "column_types": {
+      "order_id": {
+        "type": "numeric",
+        "dtype": "int64",
+        "count": 35,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "date": {
+        "type": "categorical",
+        "dtype": "str",
+        "count": 35,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "customer_id": {
+        "type": "categorical",
+        "dtype": "str",
+        "count": 35,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "region": {
+        "type": "categorical",
+        "dtype": "str",
+        "count": 35,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "product": {
+        "type": "categorical",
+        "dtype": "str",
+        "count": 35,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "category": {
+        "type": "categorical",
+        "dtype": "str",
+        "count": 35,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "price": {
+        "type": "numeric",
+        "dtype": "float64",
+        "count": 35,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "quantity": {
+        "type": "numeric",
+        "dtype": "float64",
+        "count": 35,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "total_amount": {
+        "type": "numeric",
+        "dtype": "float64",
+        "count": 35,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "payment_method": {
+        "type": "categorical",
+        "dtype": "str",
+        "count": 35,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      }
+    },
+    "cardinalities": {
+      "date": {
+        "unique_count": 35,
+        "unique_pct": 100.0,
+        "unique": 35
+      },
+      "customer_id": {
+        "unique_count": 32,
+        "unique_pct": 91.42857142857143,
+        "unique": 32
+      },
+      "region": {
+        "unique_count": 4,
+        "unique_pct": 11.428571428571429,
+        "unique": 4
+      },
+      "product": {
+        "unique_count": 9,
+        "unique_pct": 25.71428571428571,
+        "unique": 9
+      },
+      "category": {
+        "unique_count": 3,
+        "unique_pct": 8.571428571428571,
+        "unique": 3
+      },
+      "payment_method": {
+        "unique_count": 3,
+        "unique_pct": 8.571428571428571,
+        "unique": 3
+      }
+    },
+    "missingness": {
+      "total_na": 0,
+      "percentage_na": 0.0
+    },
+    "numeric_stats": {
+      "order_id": {
+        "count": 35,
+        "mean": 1018.0,
+        "std": 10.246950765959598,
+        "min": 1001.0,
+        "max": 1035.0,
+        "median": 1018.0,
+        "skewness": 0.0,
+        "kurtosis": -1.2000000000000002
+      },
+      "price": {
+        "count": 35,
+        "mean": 230.35600000000002,
+        "std": 375.3854656389099,
+        "min": 1.2,
+        "max": 1899.99,
+        "median": 120.5,
+        "skewness": 3.2004529874527465,
+        "kurtosis": 11.56299733777426
+      },
+      "quantity": {
+        "count": 35,
+        "mean": 7.542857142857143,
+        "std": 18.43644545481594,
+        "min": 1.0,
+        "max": 100.0,
+        "median": 2.0,
+        "skewness": 4.298055378956079,
+        "kurtosis": 19.91870888807814
+      },
+      "total_amount": {
+        "count": 35,
+        "mean": 294.0347142857143,
+        "std": 364.8979041235226,
+        "min": 24.0,
+        "max": 1899.99,
+        "median": 179.985,
+        "skewness": 2.9972698896929164,
+        "kurtosis": 10.759158226924253
+      }
+    },
+    "categorical_stats": {
+      "date": {
+        "top_values": [
+          {
+            "value": "2024-01-03",
+            "count": 1,
+            "percentage": 2.857142857142857
+          },
+          {
+            "value": "2024-01-04",
+            "count": 1,
+            "percentage": 2.857142857142857
+          },
+          {
+            "value": "2024-01-05",
+            "count": 1,
+            "percentage": 2.857142857142857
+          },
+          {
+            "value": "2024-01-06",
+            "count": 1,
+            "percentage": 2.857142857142857
+          },
+          {
+            "value": "2024-01-07",
+            "count": 1,
+            "percentage": 2.857142857142857
+          }
+        ],
+        "unique_count": 35,
+        "missing_count": 0,
+        "most_frequent": {
+          "value": "2024-01-03",
+          "count": 1,
+          "percentage": 2.857142857142857
+        }
+      },
+      "customer_id": {
+        "top_values": [
+          {
+            "value": "C001",
+            "count": 3,
+            "percentage": 8.571428571428571
+          },
+          {
+            "value": "C002",
+            "count": 2,
+            "percentage": 5.714285714285714
+          },
+          {
+            "value": "C003",
+            "count": 1,
+            "percentage": 2.857142857142857
+          },
+          {
+            "value": "C004",
+            "count": 1,
+            "percentage": 2.857142857142857
+          },
+          {
+            "value": "C005",
+            "count": 1,
+            "percentage": 2.857142857142857
+          }
+        ],
+        "unique_count": 32,
+        "missing_count": 0,
+        "most_frequent": {
+          "value": "C001",
+          "count": 3,
+          "percentage": 8.571428571428571
+        }
+      },
+      "region": {
+        "top_values": [
+          {
+            "value": "North",
+            "count": 10,
+            "percentage": 28.57142857142857
+          },
+          {
+            "value": "South",
+            "count": 9,
+            "percentage": 25.71428571428571
+          },
+          {
+            "value": "West",
+            "count": 8,
+            "percentage": 22.857142857142858
+          },
+          {
+            "value": "East",
+            "count": 8,
+            "percentage": 22.857142857142858
+          }
+        ],
+        "unique_count": 4,
+        "missing_count": 0,
+        "most_frequent": {
+          "value": "North",
+          "count": 10,
+          "percentage": 28.57142857142857
+        }
+      },
+      "product": {
+        "top_values": [
+          {
+            "value": "Chair",
+            "count": 5,
+            "percentage": 14.285714285714285
+          },
+          {
+            "value": "Laptop",
+            "count": 4,
+            "percentage": 11.428571428571429
+          },
+          {
+            "value": "Headphones",
+            "count": 4,
+            "percentage": 11.428571428571429
+          },
+          {
+            "value": "Desk",
+            "count": 4,
+            "percentage": 11.428571428571429
+          },
+          {
+            "value": "Monitor",
+            "count": 4,
+            "percentage": 11.428571428571429
+          }
+        ],
+        "unique_count": 9,
+        "missing_count": 0,
+        "most_frequent": {
+          "value": "Chair",
+          "count": 5,
+          "percentage": 14.285714285714285
+        }
+      },
+      "category": {
+        "top_values": [
+          {
+            "value": "Electronics",
+            "count": 19,
+            "percentage": 54.285714285714285
+          },
+          {
+            "value": "Furniture",
+            "count": 9,
+            "percentage": 25.71428571428571
+          },
+          {
+            "value": "Stationery",
+            "count": 7,
+            "percentage": 20.0
+          }
+        ],
+        "unique_count": 3,
+        "missing_count": 0,
+        "most_frequent": {
+          "value": "Electronics",
+          "count": 19,
+          "percentage": 54.285714285714285
+        }
+      },
+      "payment_method": {
+        "top_values": [
+          {
+            "value": "Card",
+            "count": 17,
+            "percentage": 48.57142857142857
+          },
+          {
+            "value": "Cash",
+            "count": 10,
+            "percentage": 28.57142857142857
+          },
+          {
+            "value": "Transfer",
+            "count": 8,
+            "percentage": 22.857142857142858
+          }
+        ],
+        "unique_count": 3,
+        "missing_count": 0,
+        "most_frequent": {
+          "value": "Card",
+          "count": 17,
+          "percentage": 48.57142857142857
+        }
+      }
+    },
+    "date_stats": {},
+    "correlations": {
+      "matrix": {
+        "order_id": {
+          "order_id": 1.0,
+          "price": 0.018451110083081392,
+          "quantity": 0.17187721735822895,
+          "total_amount": 0.026204230845658455
+        },
+        "price": {
+          "order_id": 0.018451110083081392,
+          "price": 1.0,
+          "quantity": -0.21376921501000867,
+          "total_amount": 0.9719755864061532
+        },
+        "quantity": {
+          "order_id": 0.17187721735822895,
+          "price": -0.21376921501000867,
+          "quantity": 1.0,
+          "total_amount": -0.19465707921307546
+        },
+        "total_amount": {
+          "order_id": 0.026204230845658455,
+          "price": 0.9719755864061532,
+          "quantity": -0.19465707921307546,
+          "total_amount": 1.0
+        }
+      },
+      "strong_correlations": [
+        {
+          "col1": "price",
+          "col2": "total_amount",
+          "correlation": 0.9719755864061532,
+          "strength": "strong"
+        }
+      ]
+    },
+    "insights": [
+      {
+        "type": "data_size",
+        "severity": "low",
+        "title": "Dataset de petite taille",
+        "description": "Le dataset contient seulement 35 lignes. Les analyses statistiques peuvent \u00eatre limit\u00e9es.",
+        "recommendation": "Consid\u00e9rez collecter plus de donn\u00e9es ou utiliser des techniques d'analyse adapt\u00e9es aux petits \u00e9chantillons."
+      },
+      {
+        "type": "high_cardinality",
+        "severity": "info",
+        "title": "Colonne date tr\u00e8s unique",
+        "description": "La colonne date a 35 valeurs uniques sur 35 lignes (100.0%)."
+      },
+      {
+        "type": "high_cardinality",
+        "severity": "info",
+        "title": "Colonne customer_id tr\u00e8s unique",
+        "description": "La colonne customer_id a 32 valeurs uniques sur 35 lignes (91.4%)."
+      }
+    ],
+    "hypotheses": [
+      {
+        "title": "Corr\u00e9lation",
+        "description": "Analyser les corr\u00e9lations entre variables",
+        "validation": "Calculer corr\u00e9lations"
+      }
+    ],
+    "viz_suggestions": [
+      {
+        "type": "histogram",
+        "title": "Distribution de order_id",
+        "description": "Histogramme montrant la distribution des valeurs de order_id",
+        "column": "order_id"
+      },
+      {
+        "type": "histogram",
+        "title": "Distribution de price",
+        "description": "Histogramme montrant la distribution des valeurs de price",
+        "column": "price"
+      },
+      {
+        "type": "histogram",
+        "title": "Distribution de quantity",
+        "description": "Histogramme montrant la distribution des valeurs de quantity",
+        "column": "quantity"
+      },
+      {
+        "type": "histogram",
+        "title": "Distribution de total_amount",
+        "description": "Histogramme montrant la distribution des valeurs de total_amount",
+        "column": "total_amount"
+      },
+      {
+        "type": "boxplot",
+        "title": "Boxplot de order_id",
+        "description": "Boxplot pour d\u00e9tecter les outliers dans order_id",
+        "column": "order_id"
+      },
+      {
+        "type": "boxplot",
+        "title": "Boxplot de price",
+        "description": "Boxplot pour d\u00e9tecter les outliers dans price",
+        "column": "price"
+      },
+      {
+        "type": "boxplot",
+        "title": "Boxplot de quantity",
+        "description": "Boxplot pour d\u00e9tecter les outliers dans quantity",
+        "column": "quantity"
+      },
+      {
+        "type": "boxplot",
+        "title": "Boxplot de total_amount",
+        "description": "Boxplot pour d\u00e9tecter les outliers dans total_amount",
+        "column": "total_amount"
+      },
+      {
+        "type": "scatter",
+        "title": "price vs total_amount",
+        "description": "Scatter plot avec corr\u00e9lation de 0.97",
+        "columns": [
+          "price",
+          "total_amount"
+        ]
+      },
+      {
+        "type": "bar",
+        "title": "R\u00e9partition de region",
+        "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de region",
+        "column": "region"
+      },
+      {
+        "type": "bar",
+        "title": "R\u00e9partition de product",
+        "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de product",
+        "column": "product"
+      },
+      {
+        "type": "bar",
+        "title": "R\u00e9partition de category",
+        "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de category",
+        "column": "category"
+      },
+      {
+        "type": "bar",
+        "title": "R\u00e9partition de payment_method",
+        "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de payment_method",
+        "column": "payment_method"
+      }
+    ],
+    "timestamp": "2026-02-27T14:21:22.940054"
+  },
+  "figures": {
+    "histograms": [
+      "outputs\\1f693f92\\figures\\analysis_order_id_hist.png",
+      "outputs\\1f693f92\\figures\\analysis_price_hist.png",
+      "outputs\\1f693f92\\figures\\analysis_quantity_hist.png",
+      "outputs\\1f693f92\\figures\\analysis_total_amount_hist.png"
+    ],
+    "boxplots": [
+      "outputs\\1f693f92\\figures\\analysis_order_id_box.png",
+      "outputs\\1f693f92\\figures\\analysis_price_box.png",
+      "outputs\\1f693f92\\figures\\analysis_quantity_box.png",
+      "outputs\\1f693f92\\figures\\analysis_total_amount_box.png"
+    ],
+    "barcharts": [
+      "outputs\\1f693f92\\figures\\analysis_date_bar.png",
+      "outputs\\1f693f92\\figures\\analysis_customer_id_bar.png",
+      "outputs\\1f693f92\\figures\\analysis_region_bar.png",
+      "outputs\\1f693f92\\figures\\analysis_product_bar.png",
+      "outputs\\1f693f92\\figures\\analysis_category_bar.png"
+    ],
+    "scatterplots": [],
+    "timeseries": [],
+    "heatmaps": [],
+    "custom": [
+      "outputs\\1f693f92\\figures\\viz_8_price_total_amount_scatter.png"
+    ]
+  },
+  "insights": [
+    {
+      "type": "data_size",
+      "severity": "low",
+      "title": "Dataset de petite taille",
+      "description": "Le dataset contient seulement 35 lignes. Les analyses statistiques peuvent \u00eatre limit\u00e9es.",
+      "recommendation": "Consid\u00e9rez collecter plus de donn\u00e9es ou utiliser des techniques d'analyse adapt\u00e9es aux petits \u00e9chantillons."
+    },
+    {
+      "type": "high_cardinality",
+      "severity": "info",
+      "title": "Colonne date tr\u00e8s unique",
+      "description": "La colonne date a 35 valeurs uniques sur 35 lignes (100.0%)."
+    },
+    {
+      "type": "high_cardinality",
+      "severity": "info",
+      "title": "Colonne customer_id tr\u00e8s unique",
+      "description": "La colonne customer_id a 32 valeurs uniques sur 35 lignes (91.4%)."
+    }
+  ],
+  "viz_suggestions": [
+    {
+      "type": "histogram",
+      "title": "Distribution de order_id",
+      "description": "Histogramme montrant la distribution des valeurs de order_id",
+      "column": "order_id"
+    },
+    {
+      "type": "histogram",
+      "title": "Distribution de price",
+      "description": "Histogramme montrant la distribution des valeurs de price",
+      "column": "price"
+    },
+    {
+      "type": "histogram",
+      "title": "Distribution de quantity",
+      "description": "Histogramme montrant la distribution des valeurs de quantity",
+      "column": "quantity"
+    },
+    {
+      "type": "histogram",
+      "title": "Distribution de total_amount",
+      "description": "Histogramme montrant la distribution des valeurs de total_amount",
+      "column": "total_amount"
+    },
+    {
+      "type": "boxplot",
+      "title": "Boxplot de order_id",
+      "description": "Boxplot pour d\u00e9tecter les outliers dans order_id",
+      "column": "order_id"
+    },
+    {
+      "type": "boxplot",
+      "title": "Boxplot de price",
+      "description": "Boxplot pour d\u00e9tecter les outliers dans price",
+      "column": "price"
+    },
+    {
+      "type": "boxplot",
+      "title": "Boxplot de quantity",
+      "description": "Boxplot pour d\u00e9tecter les outliers dans quantity",
+      "column": "quantity"
+    },
+    {
+      "type": "boxplot",
+      "title": "Boxplot de total_amount",
+      "description": "Boxplot pour d\u00e9tecter les outliers dans total_amount",
+      "column": "total_amount"
+    },
+    {
+      "type": "scatter",
+      "title": "price vs total_amount",
+      "description": "Scatter plot avec corr\u00e9lation de 0.97",
+      "columns": [
+        "price",
+        "total_amount"
+      ]
+    },
+    {
+      "type": "bar",
+      "title": "R\u00e9partition de region",
+      "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de region",
+      "column": "region"
+    },
+    {
+      "type": "bar",
+      "title": "R\u00e9partition de product",
+      "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de product",
+      "column": "product"
+    },
+    {
+      "type": "bar",
+      "title": "R\u00e9partition de category",
+      "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de category",
+      "column": "category"
+    },
+    {
+      "type": "bar",
+      "title": "R\u00e9partition de payment_method",
+      "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de payment_method",
+      "column": "payment_method"
+    }
+  ]
+}

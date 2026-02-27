@@ -1,0 +1,11 @@
+/* Custom styles for Data Analyst Agent */
+.btn-primary-custom {
+    background-color: #2563eb;
+    border: none;
+}
+.btn-primary-custom:hover {
+    background-color: #1d4ed8;
+}
+.btn-primary-custom:active {
+    background-color: #1e40af;
+}

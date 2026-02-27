@@ -1,0 +1,613 @@
+{
+  "metadata": {
+    "input_file": "uploads\\a6ab9ad1_test2.csv",
+    "output_dir": "outputs\\a6ab9ad1",
+    "timestamp": "2026-02-27T15:04:39.643494"
+  },
+  "ingestion_meta": {
+    "filepath": "uploads\\a6ab9ad1_test2.csv",
+    "filename": "a6ab9ad1_test2.csv",
+    "size_bytes": 774,
+    "encoding_used": "utf-8",
+    "separator_used": ",",
+    "rows_loaded": 20,
+    "columns_loaded": 6,
+    "warnings": [],
+    "errors": [],
+    "timestamp": "2026-02-27T15:04:37.482301",
+    "columns_original": [
+      "nom",
+      "age",
+      "ville",
+      "revenu",
+      "score",
+      "date_inscription"
+    ],
+    "columns_normalized": [
+      "nom",
+      "age",
+      "ville",
+      "revenu",
+      "score",
+      "date_inscription"
+    ]
+  },
+  "data_quality_summary": {
+    "before": {
+      "rows": 20,
+      "columns": 6,
+      "memory_bytes": 3982,
+      "na_count": 0,
+      "duplicates": 0
+    },
+    "after": {
+      "rows": 20,
+      "columns": 6,
+      "memory_bytes": 3982,
+      "na_count": 0,
+      "duplicates": 0
+    },
+    "warnings": [],
+    "type_inference": {
+      "nom": {
+        "type": "categorical",
+        "converted": false,
+        "original_dtype": "str",
+        "warnings": []
+      },
+      "age": {
+        "type": "numeric",
+        "converted": true,
+        "original_dtype": "int64",
+        "warnings": []
+      },
+      "ville": {
+        "type": "categorical",
+        "converted": false,
+        "original_dtype": "str",
+        "warnings": []
+      },
+      "revenu": {
+        "type": "numeric",
+        "converted": true,
+        "original_dtype": "int64",
+        "warnings": []
+      },
+      "score": {
+        "type": "numeric",
+        "converted": true,
+        "original_dtype": "int64",
+        "warnings": []
+      },
+      "date_inscription": {
+        "type": "datetime",
+        "converted": true,
+        "original_dtype": "str",
+        "warnings": []
+      }
+    },
+    "missing_values": {
+      "before": {
+        "nom": 0,
+        "age": 0,
+        "ville": 0,
+        "revenu": 0,
+        "score": 0,
+        "date_inscription": 0
+      },
+      "after": {
+        "nom": 0,
+        "age": 0,
+        "ville": 0,
+        "revenu": 0,
+        "score": 0,
+        "date_inscription": 0
+      },
+      "strategy": {
+        "nom": "mode (Alice)",
+        "age": "median (32.5)",
+        "ville": "mode (Paris)",
+        "revenu": "median (42500.0)",
+        "score": "median (83.5)",
+        "date_inscription": "NaT (conserv\u00e9)"
+      }
+    },
+    "duplicates_removed": 0,
+    "outliers_detected": {
+      "age": {
+        "lower_bound": 13.5,
+        "upper_bound": 51.5,
+        "count": 0,
+        "percentage": 0.0,
+        "iqr": 9.5
+      },
+      "revenu": {
+        "lower_bound": 18500.0,
+        "upper_bound": 64500.0,
+        "count": 0,
+        "percentage": 0.0,
+        "iqr": 11500.0
+      },
+      "score": {
+        "lower_bound": 64.5,
+        "upper_bound": 102.5,
+        "count": 0,
+        "percentage": 0.0,
+        "iqr": 9.5
+      }
+    }
+  },
+  "analysis_summary": {
+    "shape": {
+      "rows": 20,
+      "columns": 6
+    },
+    "memory_bytes": 3982,
+    "column_types": {
+      "nom": {
+        "type": "categorical",
+        "dtype": "str",
+        "count": 20,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "age": {
+        "type": "numeric",
+        "dtype": "int64",
+        "count": 20,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "ville": {
+        "type": "categorical",
+        "dtype": "str",
+        "count": 20,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "revenu": {
+        "type": "numeric",
+        "dtype": "int64",
+        "count": 20,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "score": {
+        "type": "numeric",
+        "dtype": "int64",
+        "count": 20,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "date_inscription": {
+        "type": "categorical",
+        "dtype": "str",
+        "count": 20,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      }
+    },
+    "cardinalities": {
+      "nom": {
+        "unique_count": 20,
+        "unique_pct": 100.0,
+        "unique": 20
+      },
+      "ville": {
+        "unique_count": 7,
+        "unique_pct": 35.0,
+        "unique": 7
+      },
+      "date_inscription": {
+        "unique_count": 20,
+        "unique_pct": 100.0,
+        "unique": 20
+      }
+    },
+    "missingness": {
+      "total_na": 0,
+      "percentage_na": 0.0
+    },
+    "numeric_stats": {
+      "age": {
+        "count": 20,
+        "mean": 32.75,
+        "std": 6.340139463848775,
+        "min": 23.0,
+        "max": 45.0,
+        "median": 32.5,
+        "skewness": 0.21985159886356162,
+        "kurtosis": -0.8714095019210455
+      },
+      "revenu": {
+        "count": 20,
+        "mean": 42350.0,
+        "std": 8530.28659973885,
+        "min": 29000.0,
+        "max": 61000.0,
+        "median": 42500.0,
+        "skewness": 0.30812187143202685,
+        "kurtosis": -0.27183547307214395
+      },
+      "score": {
+        "count": 20,
+        "mean": 83.35,
+        "std": 6.175290319192758,
+        "min": 72.0,
+        "max": 93.0,
+        "median": 83.5,
+        "skewness": -0.14418993993142967,
+        "kurtosis": -0.9813575973505024
+      }
+    },
+    "categorical_stats": {
+      "nom": {
+        "top_values": [
+          {
+            "value": "Alice",
+            "count": 1,
+            "percentage": 5.0
+          },
+          {
+            "value": "Bob",
+            "count": 1,
+            "percentage": 5.0
+          },
+          {
+            "value": "Charlie",
+            "count": 1,
+            "percentage": 5.0
+          },
+          {
+            "value": "David",
+            "count": 1,
+            "percentage": 5.0
+          },
+          {
+            "value": "Emma",
+            "count": 1,
+            "percentage": 5.0
+          }
+        ],
+        "unique_count": 20,
+        "missing_count": 0,
+        "most_frequent": {
+          "value": "Alice",
+          "count": 1,
+          "percentage": 5.0
+        }
+      },
+      "ville": {
+        "top_values": [
+          {
+            "value": "Paris",
+            "count": 5,
+            "percentage": 25.0
+          },
+          {
+            "value": "Lyon",
+            "count": 3,
+            "percentage": 15.0
+          },
+          {
+            "value": "Marseille",
+            "count": 3,
+            "percentage": 15.0
+          },
+          {
+            "value": "Toulouse",
+            "count": 3,
+            "percentage": 15.0
+          },
+          {
+            "value": "Nantes",
+            "count": 2,
+            "percentage": 10.0
+          }
+        ],
+        "unique_count": 7,
+        "missing_count": 0,
+        "most_frequent": {
+          "value": "Paris",
+          "count": 5,
+          "percentage": 25.0
+        }
+      },
+      "date_inscription": {
+        "top_values": [
+          {
+            "value": "2023-01-15",
+            "count": 1,
+            "percentage": 5.0
+          },
+          {
+            "value": "2022-11-03",
+            "count": 1,
+            "percentage": 5.0
+          },
+          {
+            "value": "2023-03-22",
+            "count": 1,
+            "percentage": 5.0
+          },
+          {
+            "value": "2021-07-19",
+            "count": 1,
+            "percentage": 5.0
+          },
+          {
+            "value": "2024-02-10",
+            "count": 1,
+            "percentage": 5.0
+          }
+        ],
+        "unique_count": 20,
+        "missing_count": 0,
+        "most_frequent": {
+          "value": "2023-01-15",
+          "count": 1,
+          "percentage": 5.0
+        }
+      }
+    },
+    "date_stats": {},
+    "correlations": {
+      "matrix": {
+        "age": {
+          "age": 1.0,
+          "revenu": 0.991406100255586,
+          "score": 0.947382356732038
+        },
+        "revenu": {
+          "age": 0.991406100255586,
+          "revenu": 1.0,
+          "score": 0.9497304501218952
+        },
+        "score": {
+          "age": 0.947382356732038,
+          "revenu": 0.9497304501218952,
+          "score": 1.0
+        }
+      },
+      "strong_correlations": [
+        {
+          "col1": "age",
+          "col2": "revenu",
+          "correlation": 0.991406100255586,
+          "strength": "strong"
+        },
+        {
+          "col1": "age",
+          "col2": "score",
+          "correlation": 0.947382356732038,
+          "strength": "strong"
+        },
+        {
+          "col1": "revenu",
+          "col2": "score",
+          "correlation": 0.9497304501218952,
+          "strength": "strong"
+        }
+      ]
+    },
+    "insights": [
+      {
+        "type": "data_size",
+        "severity": "low",
+        "title": "Dataset de petite taille",
+        "description": "Le dataset contient seulement 20 lignes. Les analyses statistiques peuvent \u00eatre limit\u00e9es.",
+        "recommendation": "Consid\u00e9rez collecter plus de donn\u00e9es ou utiliser des techniques d'analyse adapt\u00e9es aux petits \u00e9chantillons."
+      },
+      {
+        "type": "high_cardinality",
+        "severity": "info",
+        "title": "Colonne nom tr\u00e8s unique",
+        "description": "La colonne nom a 20 valeurs uniques sur 20 lignes (100.0%)."
+      },
+      {
+        "type": "high_cardinality",
+        "severity": "info",
+        "title": "Colonne date_inscription tr\u00e8s unique",
+        "description": "La colonne date_inscription a 20 valeurs uniques sur 20 lignes (100.0%)."
+      }
+    ],
+    "hypotheses": [
+      {
+        "title": "Corr\u00e9lation",
+        "description": "Analyser les corr\u00e9lations entre variables",
+        "validation": "Calculer corr\u00e9lations"
+      }
+    ],
+    "viz_suggestions": [
+      {
+        "type": "histogram",
+        "title": "Distribution de age",
+        "description": "Histogramme montrant la distribution des valeurs de age",
+        "column": "age"
+      },
+      {
+        "type": "histogram",
+        "title": "Distribution de revenu",
+        "description": "Histogramme montrant la distribution des valeurs de revenu",
+        "column": "revenu"
+      },
+      {
+        "type": "histogram",
+        "title": "Distribution de score",
+        "description": "Histogramme montrant la distribution des valeurs de score",
+        "column": "score"
+      },
+      {
+        "type": "boxplot",
+        "title": "Boxplot de age",
+        "description": "Boxplot pour d\u00e9tecter les outliers dans age",
+        "column": "age"
+      },
+      {
+        "type": "boxplot",
+        "title": "Boxplot de revenu",
+        "description": "Boxplot pour d\u00e9tecter les outliers dans revenu",
+        "column": "revenu"
+      },
+      {
+        "type": "boxplot",
+        "title": "Boxplot de score",
+        "description": "Boxplot pour d\u00e9tecter les outliers dans score",
+        "column": "score"
+      },
+      {
+        "type": "scatter",
+        "title": "age vs revenu",
+        "description": "Scatter plot avec corr\u00e9lation de 0.99",
+        "columns": [
+          "age",
+          "revenu"
+        ]
+      },
+      {
+        "type": "scatter",
+        "title": "age vs score",
+        "description": "Scatter plot avec corr\u00e9lation de 0.95",
+        "columns": [
+          "age",
+          "score"
+        ]
+      },
+      {
+        "type": "scatter",
+        "title": "revenu vs score",
+        "description": "Scatter plot avec corr\u00e9lation de 0.95",
+        "columns": [
+          "revenu",
+          "score"
+        ]
+      },
+      {
+        "type": "bar",
+        "title": "R\u00e9partition de ville",
+        "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de ville",
+        "column": "ville"
+      }
+    ],
+    "timestamp": "2026-02-27T15:04:37.558913"
+  },
+  "figures": {
+    "histograms": [
+      "outputs\\a6ab9ad1\\figures\\analysis_age_hist.png",
+      "outputs\\a6ab9ad1\\figures\\analysis_revenu_hist.png",
+      "outputs\\a6ab9ad1\\figures\\analysis_score_hist.png"
+    ],
+    "boxplots": [
+      "outputs\\a6ab9ad1\\figures\\analysis_age_box.png",
+      "outputs\\a6ab9ad1\\figures\\analysis_revenu_box.png",
+      "outputs\\a6ab9ad1\\figures\\analysis_score_box.png"
+    ],
+    "barcharts": [
+      "outputs\\a6ab9ad1\\figures\\analysis_nom_bar.png",
+      "outputs\\a6ab9ad1\\figures\\analysis_ville_bar.png",
+      "outputs\\a6ab9ad1\\figures\\analysis_date_inscription_bar.png"
+    ],
+    "scatterplots": [],
+    "timeseries": [],
+    "heatmaps": [
+      "outputs\\a6ab9ad1\\figures\\analysis_correlation_heatmap.png"
+    ],
+    "custom": [
+      "outputs\\a6ab9ad1\\figures\\viz_6_age_revenu_scatter.png",
+      "outputs\\a6ab9ad1\\figures\\viz_7_age_score_scatter.png",
+      "outputs\\a6ab9ad1\\figures\\viz_8_revenu_score_scatter.png"
+    ]
+  },
+  "insights": [
+    {
+      "type": "data_size",
+      "severity": "low",
+      "title": "Dataset de petite taille",
+      "description": "Le dataset contient seulement 20 lignes. Les analyses statistiques peuvent \u00eatre limit\u00e9es.",
+      "recommendation": "Consid\u00e9rez collecter plus de donn\u00e9es ou utiliser des techniques d'analyse adapt\u00e9es aux petits \u00e9chantillons."
+    },
+    {
+      "type": "high_cardinality",
+      "severity": "info",
+      "title": "Colonne nom tr\u00e8s unique",
+      "description": "La colonne nom a 20 valeurs uniques sur 20 lignes (100.0%)."
+    },
+    {
+      "type": "high_cardinality",
+      "severity": "info",
+      "title": "Colonne date_inscription tr\u00e8s unique",
+      "description": "La colonne date_inscription a 20 valeurs uniques sur 20 lignes (100.0%)."
+    }
+  ],
+  "viz_suggestions": [
+    {
+      "type": "histogram",
+      "title": "Distribution de age",
+      "description": "Histogramme montrant la distribution des valeurs de age",
+      "column": "age"
+    },
+    {
+      "type": "histogram",
+      "title": "Distribution de revenu",
+      "description": "Histogramme montrant la distribution des valeurs de revenu",
+      "column": "revenu"
+    },
+    {
+      "type": "histogram",
+      "title": "Distribution de score",
+      "description": "Histogramme montrant la distribution des valeurs de score",
+      "column": "score"
+    },
+    {
+      "type": "boxplot",
+      "title": "Boxplot de age",
+      "description": "Boxplot pour d\u00e9tecter les outliers dans age",
+      "column": "age"
+    },
+    {
+      "type": "boxplot",
+      "title": "Boxplot de revenu",
+      "description": "Boxplot pour d\u00e9tecter les outliers dans revenu",
+      "column": "revenu"
+    },
+    {
+      "type": "boxplot",
+      "title": "Boxplot de score",
+      "description": "Boxplot pour d\u00e9tecter les outliers dans score",
+      "column": "score"
+    },
+    {
+      "type": "scatter",
+      "title": "age vs revenu",
+      "description": "Scatter plot avec corr\u00e9lation de 0.99",
+      "columns": [
+        "age",
+        "revenu"
+      ]
+    },
+    {
+      "type": "scatter",
+      "title": "age vs score",
+      "description": "Scatter plot avec corr\u00e9lation de 0.95",
+      "columns": [
+        "age",
+        "score"
+      ]
+    },
+    {
+      "type": "scatter",
+      "title": "revenu vs score",
+      "description": "Scatter plot avec corr\u00e9lation de 0.95",
+      "columns": [
+        "revenu",
+        "score"
+      ]
+    },
+    {
+      "type": "bar",
+      "title": "R\u00e9partition de ville",
+      "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de ville",
+      "column": "ville"
+    }
+  ]
+}

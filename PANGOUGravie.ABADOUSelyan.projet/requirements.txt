@@ -1,0 +1,31 @@
+# Data Analyst Agent - Dépendances Python
+# Version: 1.0.0
+# Python >= 3.11
+
+# Traitement de données
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Visualisation
+matplotlib>=3.7.0
+
+# Utilitaires
+PyYAML>=6.0
+python-dotenv>=1.0.0
+
+# LLM / OpenAI
+openai>=1.0.0
+
+# Notebook / Jupyter
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Interface locale
+flask>=2.0.0
+ipywidgets>=8.0.0
+
+# Tests (développement uniquement)
+
+# Tests (développement uniquement)
+pytest>=7.4.0
+pytest-cov>=4.1.0

@@ -1,0 +1,41 @@
+{
+  "input_file": "uploads\\50fa82e0_test2.csv",
+  "config_used": "config.yaml",
+  "output_dir": "outputs\\50fa82e0",
+  "results_summary": {
+    "ingestion_meta": {
+      "success": true,
+      "error": null
+    },
+    "df_clean": {
+      "success": true,
+      "error": null
+    },
+    "data_quality_summary": {
+      "success": true,
+      "error": null
+    },
+    "analysis_summary": {
+      "success": true,
+      "error": null
+    },
+    "insights": {
+      "success": true,
+      "error": null,
+      "count": 3
+    },
+    "viz_suggestions": {
+      "success": true,
+      "error": null,
+      "count": 10
+    },
+    "figures": {
+      "success": true,
+      "error": null
+    },
+    "report_path": {
+      "success": true,
+      "error": null
+    }
+  }
+}

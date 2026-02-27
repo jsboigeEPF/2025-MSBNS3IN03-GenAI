@@ -1,0 +1,575 @@
+{
+  "metadata": {
+    "input_file": "uploads\\a01b6617_test_data.csv",
+    "output_dir": "outputs\\a01b6617",
+    "timestamp": "2026-02-27T14:22:40.700581"
+  },
+  "ingestion_meta": {
+    "filepath": "uploads\\a01b6617_test_data.csv",
+    "filename": "a01b6617_test_data.csv",
+    "size_bytes": 383,
+    "encoding_used": "utf-8",
+    "separator_used": ",",
+    "rows_loaded": 10,
+    "columns_loaded": 6,
+    "warnings": [],
+    "errors": [],
+    "timestamp": "2026-02-27T14:22:38.451317",
+    "columns_original": [
+      "Nom",
+      "\u00c2ge",
+      "Ville",
+      "Revenu",
+      "Score",
+      "Date"
+    ],
+    "columns_normalized": [
+      "nom",
+      "ge",
+      "ville",
+      "revenu",
+      "score",
+      "date"
+    ]
+  },
+  "data_quality_summary": {
+    "before": {
+      "rows": 10,
+      "columns": 6,
+      "memory_bytes": 2044,
+      "na_count": 2,
+      "duplicates": 0
+    },
+    "after": {
+      "rows": 10,
+      "columns": 6,
+      "memory_bytes": 2044,
+      "na_count": 0,
+      "duplicates": 0
+    },
+    "warnings": [],
+    "type_inference": {
+      "nom": {
+        "type": "categorical",
+        "converted": false,
+        "original_dtype": "str",
+        "warnings": []
+      },
+      "ge": {
+        "type": "numeric",
+        "converted": true,
+        "original_dtype": "float64",
+        "warnings": []
+      },
+      "ville": {
+        "type": "categorical",
+        "converted": false,
+        "original_dtype": "str",
+        "warnings": []
+      },
+      "revenu": {
+        "type": "numeric",
+        "converted": true,
+        "original_dtype": "int64",
+        "warnings": []
+      },
+      "score": {
+        "type": "numeric",
+        "converted": true,
+        "original_dtype": "float64",
+        "warnings": []
+      },
+      "date": {
+        "type": "datetime",
+        "converted": true,
+        "original_dtype": "str",
+        "warnings": []
+      }
+    },
+    "missing_values": {
+      "before": {
+        "nom": 0,
+        "ge": 1,
+        "ville": 0,
+        "revenu": 0,
+        "score": 1,
+        "date": 0
+      },
+      "after": {
+        "nom": 0,
+        "ge": 0,
+        "ville": 0,
+        "revenu": 0,
+        "score": 0,
+        "date": 0
+      },
+      "strategy": {
+        "nom": "mode (Alice)",
+        "ge": "median (30.0)",
+        "ville": "mode (Paris)",
+        "revenu": "median (61000.0)",
+        "score": "median (88.0)",
+        "date": "NaT (conserv\u00e9)"
+      }
+    },
+    "duplicates_removed": 0,
+    "outliers_detected": {
+      "ge": {
+        "lower_bound": 13.125,
+        "upper_bound": 48.125,
+        "count": 0,
+        "percentage": 0.0,
+        "iqr": 8.75
+      },
+      "revenu": {
+        "lower_bound": 17500.0,
+        "upper_bound": 107500.0,
+        "count": 0,
+        "percentage": 0.0,
+        "iqr": 22500.0
+      },
+      "score": {
+        "lower_bound": 77.625,
+        "upper_bound": 98.625,
+        "count": 0,
+        "percentage": 0.0,
+        "iqr": 5.25
+      }
+    }
+  },
+  "analysis_summary": {
+    "shape": {
+      "rows": 10,
+      "columns": 6
+    },
+    "memory_bytes": 2044,
+    "column_types": {
+      "nom": {
+        "type": "categorical",
+        "dtype": "str",
+        "count": 10,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "ge": {
+        "type": "numeric",
+        "dtype": "float64",
+        "count": 10,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "ville": {
+        "type": "categorical",
+        "dtype": "str",
+        "count": 10,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "revenu": {
+        "type": "numeric",
+        "dtype": "int64",
+        "count": 10,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "score": {
+        "type": "numeric",
+        "dtype": "float64",
+        "count": 10,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "date": {
+        "type": "categorical",
+        "dtype": "str",
+        "count": 10,
+        "missing_count": 0,
+        "missing_pct": 0.0
+      }
+    },
+    "cardinalities": {
+      "nom": {
+        "unique_count": 10,
+        "unique_pct": 100.0,
+        "unique": 10
+      },
+      "ville": {
+        "unique_count": 3,
+        "unique_pct": 30.0,
+        "unique": 3
+      },
+      "date": {
+        "unique_count": 10,
+        "unique_pct": 100.0,
+        "unique": 10
+      }
+    },
+    "missingness": {
+      "total_na": 0,
+      "percentage_na": 0.0
+    },
+    "numeric_stats": {
+      "ge": {
+        "count": 10,
+        "mean": 31.5,
+        "std": 5.797509043642029,
+        "min": 25.0,
+        "max": 40.0,
+        "median": 30.0,
+        "skewness": 0.3421247055328675,
+        "kurtosis": -1.2267897391864335
+      },
+      "revenu": {
+        "count": 10,
+        "mean": 63500.0,
+        "std": 13335.416503931676,
+        "min": 48000.0,
+        "max": 85000.0,
+        "median": 61000.0,
+        "skewness": 0.40533732703482916,
+        "kurtosis": -1.3261743039615292
+      },
+      "score": {
+        "count": 10,
+        "mean": 87.9,
+        "std": 4.677368680976279,
+        "min": 78.0,
+        "max": 95.0,
+        "median": 88.0,
+        "skewness": -0.7518128418720738,
+        "kurtosis": 1.444322351597413
+      }
+    },
+    "categorical_stats": {
+      "nom": {
+        "top_values": [
+          {
+            "value": "Alice",
+            "count": 1,
+            "percentage": 10.0
+          },
+          {
+            "value": "Bob",
+            "count": 1,
+            "percentage": 10.0
+          },
+          {
+            "value": "Charlie",
+            "count": 1,
+            "percentage": 10.0
+          },
+          {
+            "value": "David",
+            "count": 1,
+            "percentage": 10.0
+          },
+          {
+            "value": "Eve",
+            "count": 1,
+            "percentage": 10.0
+          }
+        ],
+        "unique_count": 10,
+        "missing_count": 0,
+        "most_frequent": {
+          "value": "Alice",
+          "count": 1,
+          "percentage": 10.0
+        }
+      },
+      "ville": {
+        "top_values": [
+          {
+            "value": "Paris",
+            "count": 5,
+            "percentage": 50.0
+          },
+          {
+            "value": "Lyon",
+            "count": 3,
+            "percentage": 30.0
+          },
+          {
+            "value": "Marseille",
+            "count": 2,
+            "percentage": 20.0
+          }
+        ],
+        "unique_count": 3,
+        "missing_count": 0,
+        "most_frequent": {
+          "value": "Paris",
+          "count": 5,
+          "percentage": 50.0
+        }
+      },
+      "date": {
+        "top_values": [
+          {
+            "value": "2024-01-15",
+            "count": 1,
+            "percentage": 10.0
+          },
+          {
+            "value": "2024-01-16",
+            "count": 1,
+            "percentage": 10.0
+          },
+          {
+            "value": "2024-01-17",
+            "count": 1,
+            "percentage": 10.0
+          },
+          {
+            "value": "2024-01-18",
+            "count": 1,
+            "percentage": 10.0
+          },
+          {
+            "value": "2024-01-19",
+            "count": 1,
+            "percentage": 10.0
+          }
+        ],
+        "unique_count": 10,
+        "missing_count": 0,
+        "most_frequent": {
+          "value": "2024-01-15",
+          "count": 1,
+          "percentage": 10.0
+        }
+      }
+    },
+    "date_stats": {},
+    "correlations": {
+      "matrix": {
+        "ge": {
+          "ge": 1.0,
+          "revenu": 0.9808715249163081,
+          "score": 0.3749173567585841
+        },
+        "revenu": {
+          "ge": 0.9808715249163081,
+          "revenu": 1.0,
+          "score": 0.2680932025183581
+        },
+        "score": {
+          "ge": 0.3749173567585841,
+          "revenu": 0.2680932025183581,
+          "score": 1.0
+        }
+      },
+      "strong_correlations": [
+        {
+          "col1": "ge",
+          "col2": "revenu",
+          "correlation": 0.9808715249163081,
+          "strength": "strong"
+        }
+      ]
+    },
+    "insights": [
+      {
+        "type": "data_size",
+        "severity": "low",
+        "title": "Dataset de petite taille",
+        "description": "Le dataset contient seulement 10 lignes. Les analyses statistiques peuvent \u00eatre limit\u00e9es.",
+        "recommendation": "Consid\u00e9rez collecter plus de donn\u00e9es ou utiliser des techniques d'analyse adapt\u00e9es aux petits \u00e9chantillons."
+      },
+      {
+        "type": "high_cardinality",
+        "severity": "info",
+        "title": "Colonne nom tr\u00e8s unique",
+        "description": "La colonne nom a 10 valeurs uniques sur 10 lignes (100.0%)."
+      },
+      {
+        "type": "high_cardinality",
+        "severity": "info",
+        "title": "Colonne date tr\u00e8s unique",
+        "description": "La colonne date a 10 valeurs uniques sur 10 lignes (100.0%)."
+      }
+    ],
+    "hypotheses": [
+      {
+        "title": "Corr\u00e9lation",
+        "description": "Analyser les corr\u00e9lations entre variables",
+        "validation": "Calculer corr\u00e9lations"
+      }
+    ],
+    "viz_suggestions": [
+      {
+        "type": "histogram",
+        "title": "Distribution de ge",
+        "description": "Histogramme montrant la distribution des valeurs de ge",
+        "column": "ge"
+      },
+      {
+        "type": "histogram",
+        "title": "Distribution de revenu",
+        "description": "Histogramme montrant la distribution des valeurs de revenu",
+        "column": "revenu"
+      },
+      {
+        "type": "histogram",
+        "title": "Distribution de score",
+        "description": "Histogramme montrant la distribution des valeurs de score",
+        "column": "score"
+      },
+      {
+        "type": "boxplot",
+        "title": "Boxplot de ge",
+        "description": "Boxplot pour d\u00e9tecter les outliers dans ge",
+        "column": "ge"
+      },
+      {
+        "type": "boxplot",
+        "title": "Boxplot de revenu",
+        "description": "Boxplot pour d\u00e9tecter les outliers dans revenu",
+        "column": "revenu"
+      },
+      {
+        "type": "boxplot",
+        "title": "Boxplot de score",
+        "description": "Boxplot pour d\u00e9tecter les outliers dans score",
+        "column": "score"
+      },
+      {
+        "type": "scatter",
+        "title": "ge vs revenu",
+        "description": "Scatter plot avec corr\u00e9lation de 0.98",
+        "columns": [
+          "ge",
+          "revenu"
+        ]
+      },
+      {
+        "type": "bar",
+        "title": "R\u00e9partition de nom",
+        "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de nom",
+        "column": "nom"
+      },
+      {
+        "type": "bar",
+        "title": "R\u00e9partition de ville",
+        "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de ville",
+        "column": "ville"
+      },
+      {
+        "type": "bar",
+        "title": "R\u00e9partition de date",
+        "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de date",
+        "column": "date"
+      }
+    ],
+    "timestamp": "2026-02-27T14:22:38.626043"
+  },
+  "figures": {
+    "histograms": [
+      "outputs\\a01b6617\\figures\\analysis_ge_hist.png",
+      "outputs\\a01b6617\\figures\\analysis_revenu_hist.png",
+      "outputs\\a01b6617\\figures\\analysis_score_hist.png"
+    ],
+    "boxplots": [
+      "outputs\\a01b6617\\figures\\analysis_ge_box.png",
+      "outputs\\a01b6617\\figures\\analysis_revenu_box.png",
+      "outputs\\a01b6617\\figures\\analysis_score_box.png"
+    ],
+    "barcharts": [
+      "outputs\\a01b6617\\figures\\analysis_nom_bar.png",
+      "outputs\\a01b6617\\figures\\analysis_ville_bar.png",
+      "outputs\\a01b6617\\figures\\analysis_date_bar.png"
+    ],
+    "scatterplots": [],
+    "timeseries": [],
+    "heatmaps": [],
+    "custom": [
+      "outputs\\a01b6617\\figures\\viz_6_ge_revenu_scatter.png"
+    ]
+  },
+  "insights": [
+    {
+      "type": "data_size",
+      "severity": "low",
+      "title": "Dataset de petite taille",
+      "description": "Le dataset contient seulement 10 lignes. Les analyses statistiques peuvent \u00eatre limit\u00e9es.",
+      "recommendation": "Consid\u00e9rez collecter plus de donn\u00e9es ou utiliser des techniques d'analyse adapt\u00e9es aux petits \u00e9chantillons."
+    },
+    {
+      "type": "high_cardinality",
+      "severity": "info",
+      "title": "Colonne nom tr\u00e8s unique",
+      "description": "La colonne nom a 10 valeurs uniques sur 10 lignes (100.0%)."
+    },
+    {
+      "type": "high_cardinality",
+      "severity": "info",
+      "title": "Colonne date tr\u00e8s unique",
+      "description": "La colonne date a 10 valeurs uniques sur 10 lignes (100.0%)."
+    }
+  ],
+  "viz_suggestions": [
+    {
+      "type": "histogram",
+      "title": "Distribution de ge",
+      "description": "Histogramme montrant la distribution des valeurs de ge",
+      "column": "ge"
+    },
+    {
+      "type": "histogram",
+      "title": "Distribution de revenu",
+      "description": "Histogramme montrant la distribution des valeurs de revenu",
+      "column": "revenu"
+    },
+    {
+      "type": "histogram",
+      "title": "Distribution de score",
+      "description": "Histogramme montrant la distribution des valeurs de score",
+      "column": "score"
+    },
+    {
+      "type": "boxplot",
+      "title": "Boxplot de ge",
+      "description": "Boxplot pour d\u00e9tecter les outliers dans ge",
+      "column": "ge"
+    },
+    {
+      "type": "boxplot",
+      "title": "Boxplot de revenu",
+      "description": "Boxplot pour d\u00e9tecter les outliers dans revenu",
+      "column": "revenu"
+    },
+    {
+      "type": "boxplot",
+      "title": "Boxplot de score",
+      "description": "Boxplot pour d\u00e9tecter les outliers dans score",
+      "column": "score"
+    },
+    {
+      "type": "scatter",
+      "title": "ge vs revenu",
+      "description": "Scatter plot avec corr\u00e9lation de 0.98",
+      "columns": [
+        "ge",
+        "revenu"
+      ]
+    },
+    {
+      "type": "bar",
+      "title": "R\u00e9partition de nom",
+      "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de nom",
+      "column": "nom"
+    },
+    {
+      "type": "bar",
+      "title": "R\u00e9partition de ville",
+      "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de ville",
+      "column": "ville"
+    },
+    {
+      "type": "bar",
+      "title": "R\u00e9partition de date",
+      "description": "Bar chart montrant la r\u00e9partition des cat\u00e9gories de date",
+      "column": "date"
+    }
+  ]
+}
