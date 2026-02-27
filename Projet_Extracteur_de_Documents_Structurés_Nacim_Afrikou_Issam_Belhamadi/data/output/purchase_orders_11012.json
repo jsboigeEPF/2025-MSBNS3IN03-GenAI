@@ -1,0 +1,35 @@
+{
+  "source_file": "C:\\Users\\Nacim\\Projet IA Generative\\Projet_AgentMCP_NAF_ISB\\NAF_ISB\\data\\input\\purchase_orders_11012.pdf",
+  "document_type": "Purchase Order",
+  "order_id": "11012",
+  "order_date": "2018-04-09",
+  "shipped_date": null,
+  "customer_id": null,
+  "customer_name": "Peter Franken",
+  "employee_name": null,
+  "shipper_id": null,
+  "shipper_name": null,
+  "shipping": null,
+  "products": [
+    {
+      "description": "Teatime Chocolate Biscuits",
+      "quantity": 50.0,
+      "unit_price": 9.2,
+      "line_total": 460.0
+    },
+    {
+      "description": "Camembert Pierrot",
+      "quantity": 36.0,
+      "unit_price": 34.0,
+      "line_total": 1224.0
+    },
+    {
+      "description": "Flotemysost",
+      "quantity": 60.0,
+      "unit_price": 21.5,
+      "line_total": 1290.0
+    }
+  ],
+  "total_price": 2974.0,
+  "currency": "USD"
+}
