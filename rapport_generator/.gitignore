@@ -1,0 +1,22 @@
+# Variables d'environnement (clés API !)
+.env
+!.env.example
+
+# Exports PDF générés
+exports/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

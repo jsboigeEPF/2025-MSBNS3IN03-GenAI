@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D5 — Rédacteur de Rapports IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body class="theme-default">
+
+<!-- ══ SIDEBAR ══════════════════════════════════════════════════════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <span class="logo-icon">◈</span>
+    <span class="logo-text">Rapport<strong>IA</strong></span>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a href="#" class="nav-item active" data-view="home" onclick="showView('home')">
+      <span class="nav-icon">⊞</span> Accueil
+    </a>
+    <a href="#" class="nav-item" data-view="generate" onclick="showView('generate')">
+      <span class="nav-icon">✦</span> Générer
+    </a>
+    <a href="#" class="nav-item" data-view="history" onclick="showView('history'); loadHistory()">
+      <span class="nav-icon">◷</span> Historique
+    </a>
+  </nav>
+
+  <div class="sidebar-status">
+    <div class="status-item" id="status-openai">
+      <span class="status-dot"></span> OpenAI GPT-4o
+    </div>
+    <div class="status-item" id="status-qdrant">
+      <span class="status-dot"></span> Qdrant Memory
+    </div>
+    <div class="status-item" id="status-searxng">
+      <span class="status-dot"></span> SearxNG Search
+    </div>
+  </div>
+</aside>
+
+<!-- ══ MAIN ══════════════════════════════════════════════════════════════ -->
+<main class="main-content">
+
+  <!-- VIEW: HOME ──────────────────────────────────────────────────── -->
+  <div id="view-home" class="view active">
+    <div class="page-header">
+      <h1>Rédacteur de Rapports <span class="accent">Intelligent</span></h1>
+      <p class="subtitle">Transformez vos données brutes en rapports professionnels avec l'IA générative</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="type-card" data-type="financial" onclick="startWithType('financial')">
+        <div class="card-icon">◈</div>
+        <h3>Rapport Financier</h3>
+        <p>CA, marges, charges, KPIs trimestriels, analyse de croissance</p>
+        <div class="card-tags"><span>CSV</span><span>JSON</span><span>Démo</span></div>
+      </div>
+      <div class="type-card" data-type="technical" onclick="startWithType('technical')">
+        <div class="card-icon">⬡</div>
+        <h3>Rapport Technique</h3>
+        <p>Uptime, latences, incidents, services, performances système</p>
+        <div class="card-tags"><span>CSV</span><span>JSON</span><span>Démo</span></div>
+      </div>
+      <div class="type-card" data-type="medical" onclick="startWithType('medical')">
+        <div class="card-icon">⊕</div>
+        <h3>Rapport Médical</h3>
+        <p>Cohortes cliniques, biomarqueurs, outcomes, statistiques</p>
+        <div class="card-tags"><span>CSV</span><span>JSON</span><span>Démo</span></div>
+      </div>
+      <div class="type-card" data-type="generic" onclick="startWithType('generic')">
+        <div class="card-icon">≋</div>
+        <h3>Rapport Générique</h3>
+        <p>Tout type de données — l'IA détecte et s'adapte automatiquement</p>
+        <div class="card-tags"><span>CSV</span><span>JSON</span><span>Texte</span></div>
+      </div>
+    </div>
+
+    <div class="pipeline-info">
+      <h3>Pipeline de génération</h3>
+      <div class="pipeline-steps">
+        <div class="step"><span class="step-num">1</span><span>Ingestion données</span></div>
+        <div class="step-arrow">→</div>
+        <div class="step"><span class="step-num">2</span><span>Enrichissement SearxNG</span></div>
+        <div class="step-arrow">→</div>
+        <div class="step"><span class="step-num">3</span><span>Analyse GPT-4o</span></div>
+        <div class="step-arrow">→</div>
+        <div class="step"><span class="step-num">4</span><span>Rapport + PDF</span></div>
+        <div class="step-arrow">→</div>
+        <div class="step"><span class="step-num">5</span><span>Mémoire Qdrant</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIEW: GENERATE ──────────────────────────────────────────────── -->
+  <div id="view-generate" class="view">
+
+    <!-- STEP 1: Data Input -->
+    <div id="step-input" class="step-panel active">
+      <div class="page-header">
+        <h2>Configurer le rapport</h2>
+        <p class="subtitle">Choisissez la source et le type de données</p>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nom du rapport</label>
+          <input type="text" id="report-name" class="form-input" placeholder="Ex: Rapport Financier Q4 2024" />
+        </div>
+        <div class="form-group">
+          <label>Type de rapport</label>
+          <select id="report-type" class="form-select">
+            <option value="financial">📊 Financier</option>
+            <option value="technical">⬡ Technique</option>
+            <option value="medical">⊕ Médical</option>
+            <option value="generic">≋ Générique</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab('demo')">📦 Données démo</button>
+        <button class="tab-btn" onclick="switchTab('upload')">📤 Upload fichier</button>
+        <button class="tab-btn" onclick="switchTab('json')">{ } JSON manuel</button>
+        <button class="tab-btn" onclick="switchTab('text')">📝 Texte brut</button>
+      </div>
+
+      <!-- Tab: Démo -->
+      <div id="tab-demo" class="tab-content active">
+        <p class="hint">Données d'exemple pré-chargées pour tester immédiatement. Sélectionnez un type ci-dessus.</p>
+        <button class="btn btn-primary" onclick="loadDemoData()">⊞ Charger les données démo</button>
+        <div id="demo-preview" class="data-preview hidden"></div>
+      </div>
+
+      <!-- Tab: Upload -->
+      <div id="tab-upload" class="tab-content">
+        <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()"
+             ondragover="event.preventDefault()" ondrop="handleDrop(event)">
+          <div class="upload-icon">⬆</div>
+          <p>Glissez un fichier CSV ou JSON ici</p>
+          <p class="hint">ou cliquez pour parcourir</p>
+          <input type="file" id="file-input" accept=".csv,.json" style="display:none" onchange="handleFileUpload(event)" />
+        </div>
+        <div id="upload-preview" class="data-preview hidden"></div>
+      </div>
+
+      <!-- Tab: JSON -->
+      <div id="tab-json" class="tab-content">
+        <textarea id="json-input" class="code-textarea" rows="14" placeholder='{"kpis": {"revenue": 500000, "margin": 45}, "expenses": [...]}'></textarea>
+        <button class="btn btn-secondary" onclick="validateJson()">✓ Valider le JSON</button>
+        <div id="json-feedback" class="feedback-msg hidden"></div>
+      </div>
+
+      <!-- Tab: Texte brut -->
+      <div id="tab-text" class="tab-content">
+        <p class="hint">Collez du texte non structuré — l'IA extrait les données automatiquement.</p>
+        <textarea id="text-input" class="code-textarea" rows="10" placeholder="Ex: Ventes octobre: 842000€, novembre: 963000€... Personnel: 520k€..."></textarea>
+        <button class="btn btn-secondary" onclick="extractFromText()">🔍 Extraire les données</button>
+        <div id="text-feedback" class="feedback-msg hidden"></div>
+      </div>
+
+      <div class="step-actions">
+        <div class="options-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="use-search" checked />
+            <span>Enrichir avec SearxNG (web search)</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="save-memory" checked />
+            <span>Sauvegarder dans Qdrant</span>
+          </label>
+        </div>
+        <button class="btn btn-large btn-primary" id="btn-generate" onclick="generateReport()" disabled>
+          ✦ Générer le Rapport IA
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Loading -->
+    <div id="step-loading" class="step-panel">
+      <div class="loading-container">
+        <div class="loading-spinner">◈</div>
+        <h3 id="loading-title">Génération en cours...</h3>
+        <div class="loading-steps">
+          <div class="load-step" id="ls-1">
+            <span class="ls-dot">○</span> Enrichissement SearxNG
+          </div>
+          <div class="load-step" id="ls-2">
+            <span class="ls-dot">○</span> Analyse GPT-4o
+          </div>
+          <div class="load-step" id="ls-3">
+            <span class="ls-dot">○</span> Génération KPIs
+          </div>
+          <div class="load-step" id="ls-4">
+            <span class="ls-dot">○</span> Création graphiques
+          </div>
+          <div class="load-step" id="ls-5">
+            <span class="ls-dot">○</span> Sauvegarde Qdrant
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Report -->
+    <div id="step-report" class="step-panel">
+      <div id="report-header" class="report-header">
+        <div>
+          <div id="rpt-badge" class="rpt-badge"></div>
+          <h1 id="rpt-title">Rapport</h1>
+          <p id="rpt-meta" class="rpt-meta"></p>
+        </div>
+        <div class="report-actions">
+          <button class="btn btn-secondary" onclick="resetToInput()">← Nouveau</button>
+          <button class="btn btn-primary" id="btn-export-pdf" onclick="exportPDF()">⬇ Télécharger PDF</button>
+        </div>
+      </div>
+
+      <!-- KPI Cards -->
+      <div id="kpi-cards" class="kpi-grid"></div>
+
+      <!-- Tabs -->
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="switchReportTab('narrative')">📄 Narratif IA</button>
+        <button class="tab-btn" onclick="switchReportTab('charts')">📊 Graphiques</button>
+        <button class="tab-btn" onclick="switchReportTab('data')">{ } Données brutes</button>
+        <button class="tab-btn" onclick="switchReportTab('search')">🔍 Contexte web</button>
+      </div>
+
+      <div id="rtab-narrative" class="rtab-content active">
+        <div id="narrative-content" class="narrative-body"></div>
+      </div>
+
+      <div id="rtab-charts" class="rtab-content">
+        <div id="charts-container" class="charts-grid"></div>
+      </div>
+
+      <div id="rtab-data" class="rtab-content">
+        <pre id="raw-data-display" class="code-block"></pre>
+      </div>
+
+      <div id="rtab-search" class="rtab-content">
+        <div id="search-context-display" class="search-context-body"></div>
+      </div>
+    </div>
+
+  </div><!-- /view-generate -->
+
+  <!-- VIEW: HISTORY ───────────────────────────────────────────────── -->
+  <div id="view-history" class="view">
+    <div class="page-header">
+      <h2>Historique des Rapports</h2>
+      <p class="subtitle">Rapports sauvegardés dans Qdrant</p>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" id="search-input" class="form-input" placeholder="Rechercher un rapport..." />
+      <button class="btn btn-secondary" onclick="searchReports()">🔍 Rechercher</button>
+    </div>
+
+    <div id="history-list" class="history-list">
+      <p class="hint">Chargement...</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ══ TOAST ══════════════════════════════════════════════════════════ -->
+<div id="toast" class="toast hidden"></div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>
